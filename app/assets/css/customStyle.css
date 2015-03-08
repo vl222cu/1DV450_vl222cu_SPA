@@ -1,0 +1,14 @@
+/* <-------Menu settings---------->*/
+.navbar {
+	margin-bottom:-1px;
+    border-radius:0;
+}
+
+#submenu {
+    background-color: #e7e7e7;
+    margin-bottom:20px;
+}
+
+.collapsing {
+	display:none;
+}

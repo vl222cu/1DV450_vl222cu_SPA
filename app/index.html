@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html data-ng-app="">
+   <head>
+    <meta charset="utf-8">
+     <title>Must-see places SPA</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="assets/css/customStyle.css" media="screen">
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">        </head>
+   <body>
+     <h1 class="jumbotrone">Must-see places</h1>
+     <hr />
+     <div data-ng-include src="'partials/shared/menu.html'"></div>
+     <hr />
+     <div data-ng-view></div>
+      
+       
+     <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
+     
+     <script src="app.js"></script>   
+     <script src="scripts/menu.js"></script>
+   </body>
+</html>
