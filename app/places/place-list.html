@@ -1,0 +1,15 @@
+<div class="container">
+  <table class="table pull-left">
+    <thead>
+      <tr><th colspan="4">Listing of all the must-see places in the world</th></tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="_place in places.placeList">
+        <td>{{$index + 1}}</td>
+        <td>{{_place.creator.username}}</td>
+        <td>{{_place.name}}</td>
+        <td><a data-ng-href="places/{{_place.id}}">More info</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

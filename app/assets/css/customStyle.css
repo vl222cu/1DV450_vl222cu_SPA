@@ -1,14 +1,27 @@
+/* <-------Main settings---------->*/
+body, html { 
+  height: 100%; 
+  margin: 0;
+}
 /* <-------Menu settings---------->*/
-.navbar {
-	margin-bottom:-1px;
-    border-radius:0;
+.icon-bar {
+	background-color:#fff;
 }
 
-#submenu {
-    background-color: #e7e7e7;
-    margin-bottom:20px;
+.navbar-custom1 .navbar-nav > li > a:hover,
+.navbar-custom1 .navbar-nav > li > a:focus,
+.navbar-custom1 .navbar-nav > li.active > a {
+  background-color: lightgreen !important;
 }
 
-.collapsing {
-	display:none;
+/*-- change navbar dropdown color --*/
+.navbar-custom1 .navbar-nav .open .dropdown-menu>li>a,.navbar-custom1 .navbar-nav .open .dropdown-menu {
+  background-color: lightgreen;
+  color:#fff;
+}
+
+/* <-------Map settings---------->*/
+.google-map {
+  width: 500px;
+  height: 500px; 
 }
