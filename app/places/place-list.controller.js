@@ -1,10 +1,9 @@
-/*angular
+angular
     .module('positionApp')
     .controller('PlaceListController', PlaceListController);
 
-PlaceList.$inject = ['PlacesService'];
+PlaceListController.$inject = ['$scope', 'Restangular'];
 
-function PlaceListController(placeService) { 
-  var vm = this;
-  vm.places = placesPrepService.places;
-}*/
+function PlaceListController($scope, Restangular) { 
+  $scope.places = Restangular.all("places").getList().$object;
+}

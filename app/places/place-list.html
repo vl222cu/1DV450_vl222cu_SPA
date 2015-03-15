@@ -1,14 +1,30 @@
 <div class="container">
+  <form class="navbar-form pull-right">
+        <div class="form-group" style="display:inline;">
+          <div class="input-group"> 
+            <input type="text" data-ng-model="search" class="form-control" placeholder="What are you searching for?">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+          </div>
+        </div>
+      </form>
   <table class="table pull-left">
     <thead>
-      <tr><th colspan="4">Listing of all the must-see places in the world</th></tr>
+      <tr>
+        <th colspan="4">Listing of all the must-see places in the world</th>
+      </tr>
+      <tr>
+        <th>No</th>
+        <th>Creator's name</th>
+        <th>Place</th>
+        <th>Description</th>
+      </tr>
     </thead>
     <tbody>
-      <tr data-ng-repeat="_place in places.placeList">
-        <td>{{$index + 1}}</td>
-        <td>{{_place.creator.username}}</td>
-        <td>{{_place.name}}</td>
-        <td><a data-ng-href="places/{{_place.id}}">More info</a></td>
+      <tr data-ng-repeat="place in places | filter:search | orderBy:'name'">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ place.creator_ref.username }}</td>
+        <td>{{ place.name }}</td>
+        <td>{{ place.text }}</td>
       </tr>
     </tbody>
   </table>
