@@ -17,14 +17,29 @@
         <th>Creator's name</th>
         <th>Place</th>
         <th>Description</th>
+        <th>
+          <a data-ng-href="places/new">
+            <span class="glyphicon glyphicon-plus-sign"></span> Add
+          </a>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr data-ng-repeat="place in places | filter:search | orderBy:'name'">
+      <tr data-ng-repeat="place in places | filter:search">
         <td>{{ $index + 1 }}</td>
         <td>{{ place.creator_ref.username }}</td>
         <td>{{ place.name }}</td>
         <td>{{ place.text }}</td>
+        <td>
+          <a data-ng-href="place/{{place.id}}">
+            <span class="glyphicon glyphicon-info-sign"></span> About
+          </a>
+        </td>
+        <td>
+          <a data-ng-href="place/{{place.id}}/edit">
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>

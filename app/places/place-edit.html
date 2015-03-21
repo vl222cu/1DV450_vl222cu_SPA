@@ -1,0 +1,27 @@
+<div class="container">
+<form name="editForm">
+        <div class= "control-group" data-ng-class="{error: editForm.name.$invalid}">
+          <label>Place</label>
+          <input type="text" name="name" class="form-control" data-ng-model="place.name" required>
+          <span data-ng-show="editForm.name.$error.required" class="help-inline">
+              Required</span>
+        </div>
+        
+        <label>Description</label>
+        <textarea name="text" class="form-control" data-ng-model="place.text"></textarea>
+  
+        <div class= "control-group" data-ng-class="{error: editForm.address.$invalid}">
+          <label>Address</label>
+          <input type="text" name="address" class="form-control" data-ng-model="place.address" required>
+          <span data-ng-show="editForm.address.$error.required" class="help-inline">
+              Required</span>
+        </div>
+  
+        <br>
+        <a data-ng-href="places" class="btn">Cancel</a>
+        <button data-ng-click="save()" data-ng-disabled="isClean() || editForm.$invalid"
+                class="btn btn-primary">Save</button>
+        <button data-ng-click="destroy()"
+                data-ng-show="place.id" class="btn btn-danger">Delete</button>
+      </form>
+</div>

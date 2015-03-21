@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table pull-left">
+    <thead>
+      <tr>
+        <th colspan="4">Information about the must-see place</th>
+      </tr>
+      <tr>
+        <th>Creator's name</th>
+        <th>Place</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Tag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ place.creator_ref.username }}</td>
+        <td>{{ place.name }}</td>
+        <td>{{ place.text }}</td>
+        <td>{{ place.address }}</td>
+        <td>{{ place['tags'][0].name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
