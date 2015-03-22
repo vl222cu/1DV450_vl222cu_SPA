@@ -7,6 +7,10 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
   when('/', {
     templateUrl: 'layout/home.html'
   }).
+  when('/login', {
+    templateUrl: 'authentication/login.html',
+    controller: 'LoginController'
+  }).
   when('/map', {
     templateUrl: 'layout/map.html',
     controller: 'MapController'
@@ -48,5 +52,11 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
     }
     return elem;
   })
+  RestangularProvider.addElementTransformer('creators', true, function(creator) {
+
+        user.addRestangularMethod('login', 'post', 'login');
+
+        return creator;
+  });
 }
 

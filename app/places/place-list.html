@@ -1,12 +1,15 @@
 <div class="container">
   <form class="navbar-form pull-right">
-        <div class="form-group" style="display:inline;">
-          <div class="input-group"> 
-            <input type="text" data-ng-model="search" class="form-control" placeholder="What are you searching for?">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
-          </div>
-        </div>
-      </form>
+    <div class="form-group" style="display:inline;">
+    <div class="input-group"> 
+      <input type="text" data-ng-model="search" class="form-control" placeholder="What are you searching for?">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+    </div>
+    </div>
+  </form>
+  <div>
+  <p class="alert alert-success" data-ng-show="$root.isLoggedIn">Du är inloggad</p>
+  </div>
   <table class="table pull-left">
     <thead>
       <tr>
@@ -36,7 +39,7 @@
           </a>
         </td>
         <td>
-          <a data-ng-href="place/{{place.id}}/edit">
+          <a ng-show="$root.isLoggedIn" data-ng-href="place/{{place.id}}/edit">
             <span class="glyphicon glyphicon-pencil"></span> Edit
           </a>
         </td>

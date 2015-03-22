@@ -16,13 +16,28 @@ function PlaceEditController($scope, $location, Restangular, place) {
   }
 
   $scope.destroy = function() {
-    original.remove().then(function() {
+    original.customDELETE(
+      '',
+      {name: $scope.place.name, text: $scope.place.text, address: $scope.place.address},
+      {
+        Authorization: $scope.token
+      }
+    )
+    .then(function() {
       $location.path('/places');
     });
-  };
-
+  }
+  
   $scope.save = function() {
-    $scope.place.put().then(function() {
+    $scope.place.customPUT(
+      {name: $scope.place.name, text: $scope.place.text, address: $scope.place.address},
+      '',
+      {},
+      {
+        Authorization: $scope.token
+      }
+    )
+    .then(function() {
       $location.path('/places');
     });
   };
