@@ -21,7 +21,7 @@
         <th>Place</th>
         <th>Description</th>
         <th>
-          <a data-ng-href="places/new">
+          <a data-ng-show="$root.isLoggedIn" data-ng-href="places/new">
             <span class="glyphicon glyphicon-plus-sign"></span> Add
           </a>
         </th>
@@ -34,12 +34,12 @@
         <td>{{ place.name }}</td>
         <td>{{ place.text }}</td>
         <td>
-          <a data-ng-href="place/{{place.id}}">
+          <a data-ng-click="checkUser()" data-ng-href="place/{{place.id}}">
             <span class="glyphicon glyphicon-info-sign"></span> About
           </a>
         </td>
         <td>
-          <a ng-show="$root.isLoggedIn" data-ng-href="place/{{place.id}}/edit">
+          <a data-ng-show="$root.isLoggedIn" data-ng-href="place/{{place.id}}/edit">
             <span class="glyphicon glyphicon-pencil"></span> Edit
           </a>
         </td>

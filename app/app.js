@@ -1,5 +1,5 @@
 angular
-  .module('positionApp', ['ngRoute', 'ngMaps', 'restangular'])
+  .module('positionApp', ['ngRoute', 'ngMap', 'restangular'])
   .config(config);
 
 function config($routeProvider, $locationProvider, RestangularProvider) {  
@@ -10,10 +10,6 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
   when('/login', {
     templateUrl: 'authentication/login.html',
     controller: 'LoginController'
-  }).
-  when('/map', {
-    templateUrl: 'layout/map.html',
-    controller: 'MapController'
   }).
   when('/places', {
     templateUrl: 'places/place-list.html',
@@ -45,18 +41,5 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('http://fierce-fireball-96-185708.euw1-2.nitrousbox.com/api/v1');
   RestangularProvider.setDefaultHeaders({ apiKey: "7f842a957f0468757aa20fbd73c17b02" })
   RestangularProvider.setRequestSuffix('.json');
-  RestangularProvider.setRequestInterceptor(function(elem, operation, what) {        
-    if (operation === 'put') {
-      elem._id = undefined;
-      return elem;
-    }
-    return elem;
-  })
-  RestangularProvider.addElementTransformer('creators', true, function(creator) {
-
-        user.addRestangularMethod('login', 'post', 'login');
-
-        return creator;
-  });
 }
 

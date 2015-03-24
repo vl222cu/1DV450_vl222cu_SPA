@@ -6,11 +6,11 @@ MapController.$inject = ['$scope'];
 
 function MapController($scope) {
     $scope.map = {
-      center: [40.7, -74]
+      center: [-8.409517, 115.188916]
       }
     
     $scope.marker = {
-      position: [40.7, -74],
+      position: [-8.409517, 115.188916],
       options: function(){
         return {
           draggable: true
