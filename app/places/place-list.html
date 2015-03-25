@@ -1,15 +1,52 @@
 <div class="container">
   <form class="navbar-form pull-right">
+    <label for="search">Any: </label>
     <div class="form-group" style="display:inline;">
-    <div class="input-group"> 
-      <input type="text" data-ng-model="search" class="form-control" placeholder="What are you searching for?">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+     <div class="input-group"> 
+        <input type="text" data-ng-model="search.$" class="form-control" placeholder="What are you searching for?">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+     </div>
     </div>
+    <label for="search">Creator only: </label>
+    <div class="form-group" style="display:inline;">
+      <div class="input-group"> 
+        <input type="text" data-ng-model="search.creator_ref.username" class="form-control" placeholder="Which creator are you searching for?">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+      </div>
+    </div>
+    <label for="search">Tag only: </label>
+    <div class="form-group" style="display:inline;">
+      <div class="input-group"> 
+        <input type="text" data-ng-model="search.tags.name" class="form-control" placeholder="What tag are you searching for?">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
+      </div>
     </div>
   </form>
-  <div>
-  <p class="alert alert-success" data-ng-show="$root.isLoggedIn">Du är inloggad</p>
+  <br />
+  <br />
+  <br />
+  <div class="row">
+  <div class="alert alert-success" data-ng-show="$root.justLoggedIn && $root.isLoggedIn">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <p><strong>Congrats!</strong> You successfully logged in.</p>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="alert alert-danger" data-ng-if="$root.error">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <p><strong>Something's wrong!</strong> The request couldn't be processed at this time.</p>
+    </div>
   </div>
+  <div class="row">
+  <div class="alert alert-success" data-ng-if="$root.success">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <p><strong>Congrats!</strong> The request was successfully processed.</p>
+    </div>
+  </div>
+<!--    <div flash-alert="success" active-class="in" class="alert fade">
+    <strong class="alert-heading">Congrats!</strong>
+    <span class="alert-message">{{flash.get()}}</span> 
+</div> -->
   <table class="table pull-left">
     <thead>
       <tr>
@@ -19,7 +56,7 @@
         <th>No</th>
         <th>Creator's name</th>
         <th>Place</th>
-        <th>Description</th>
+        <th>Tag</th>
         <th>
           <a data-ng-show="$root.isLoggedIn" data-ng-href="places/new">
             <span class="glyphicon glyphicon-plus-sign"></span> Add
@@ -28,11 +65,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr data-ng-repeat="place in places | filter:search">
+      <tr data-ng-repeat="place in places | filter: search">
         <td>{{ $index + 1 }}</td>
         <td>{{ place.creator_ref.username }}</td>
         <td>{{ place.name }}</td>
-        <td>{{ place.text }}</td>
+        <td>{{ place.tags[0].name }}</td>
         <td>
           <a data-ng-click="checkUser()" data-ng-href="place/{{place.id}}">
             <span class="glyphicon glyphicon-info-sign"></span> About

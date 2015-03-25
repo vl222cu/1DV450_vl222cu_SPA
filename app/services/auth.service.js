@@ -16,15 +16,17 @@ function authService(Restangular) {
       {},
       {}
     )
-    .then(getJwtTokenComplete)
-    .catch(getJwtTokenFailed);
+    .then(getJwtTokenComplete);
+/*    .catch(getJwtTokenFailed); */
     
     function getJwtTokenComplete(response) {
       return response;
     }
     
-    function getJwtTokenFailed(error) {
+/*    function getJwtTokenFailed(error) {
       console.log("Error with status code", error.status);
-    }
+      var requestError = "Error with status code" + error.status;
+      return requestError;
+    } */
   }
 }

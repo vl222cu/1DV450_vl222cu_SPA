@@ -2,6 +2,10 @@
   <div class="center jumbotron">
     <h3 class="text-center">Sign in and start sharing all of your must-see places!</h3>
   </div>
+<div flash-alert="error" active-class="in" class="alert fade">
+    <strong class="alert-heading">Something's wrong!</strong>
+    <span class="alert-message">{{flash.message}}</span>
+</div>
   <form role="form">
     <div class="form-group">
       <label for="email">Email:</label>

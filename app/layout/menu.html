@@ -16,11 +16,13 @@
         </li>
         <li><a data-ng-href=".">Creators</a>
         </li>
-        <li><a data-ng-href=".">Tags</a>
+        <li><a data-ng-href="tags/:id/places">Tags</a>
         </li> 
         <li><a data-ng-href="map">Map</a>
         </li>
-        <li><a data-ng-href="login">Login</a>
+        <li data-ng-if="!$root.isLoggedIn"><a data-ng-href="login">Login</a>
+        </li>
+        <li data-ng-if="$root.isLoggedIn"><a data-ng-href="logout">Logout</a>
         </li>
         <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Account settings <b class="caret"></b></a>
             <ul role="menu" class="dropdown-menu" aria-labelledbyid="drop1">

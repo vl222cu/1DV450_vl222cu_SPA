@@ -1,15 +1,16 @@
 angular
-  .module('positionApp', ['ngRoute', 'ngMap', 'restangular'])
+  .module('positionApp', ['ngRoute', 'ngMap', 'restangular', 'angular-flash.service', 'angular-flash.flash-alert-directive'])
   .config(config);
 
-function config($routeProvider, $locationProvider, RestangularProvider) {  
+function config($routeProvider, $locationProvider, RestangularProvider, flashProvider) {  
   $routeProvider.
   when('/', {
     templateUrl: 'layout/home.html'
   }).
   when('/login', {
     templateUrl: 'authentication/login.html',
-    controller: 'LoginController'
+    controller: 'LoginController',
+    controllerAs: 'auth'
   }).
   when('/places', {
     templateUrl: 'places/place-list.html',
@@ -23,6 +24,7 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
   when('/place/:id/edit', {
     templateUrl: 'places/place-edit.html',
     controller: 'PlaceEditController',
+    controllerAs: 'edit',
     resolve: {
       place: function(Restangular, $route){
         return Restangular.one('places', $route.current.params.id).get();
@@ -33,6 +35,14 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
     templateUrl: 'places/place-edit.html',
     controller: 'PlaceCreateController'
   }).
+   when('/tags/:id/places', {
+    templateUrl: 'places/place-by-tag.html',
+    controller: 'PlaceByTagController'
+  }).
+  when('/logout', {
+    templateUrl: 'authentication/logout.html',
+    controller: 'LogoutController'
+  }).
   otherwise({
     redirectTo: '/'
   }); 
@@ -41,5 +51,8 @@ function config($routeProvider, $locationProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('http://fierce-fireball-96-185708.euw1-2.nitrousbox.com/api/v1');
   RestangularProvider.setDefaultHeaders({ apiKey: "7f842a957f0468757aa20fbd73c17b02" })
   RestangularProvider.setRequestSuffix('.json');
+
+  flashProvider.errorClassnames.push('alert-danger');
+  flashProvider.successClassnames.push('alert-success');
 }
 
