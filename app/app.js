@@ -1,5 +1,5 @@
 angular
-  .module('positionApp', ['ngRoute', 'ngMap', 'restangular', 'angular-flash.service', 'angular-flash.flash-alert-directive'])
+  .module('positionApp', ['ngRoute', 'ngMap', 'restangular', 'angular-flash.service', 'angular-flash.flash-alert-directive', 'viDirective'])
   .config(config);
 
 function config($routeProvider, $locationProvider, RestangularProvider, flashProvider) {  
