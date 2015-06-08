@@ -1,6 +1,7 @@
 <div class="container">
 <form name="editForm">
         <div class= "control-group" data-ng-class="{error: editForm.name.$invalid}">
+<!--          <input type="hidden" name="creatorId" id="creatorId" value="$root.creator" /><br /> -->
           <label>Place</label>
           <input type="text" name="name" class="form-control" data-ng-model="place.name" required>
           <span data-ng-show="editForm.name.$error.required" class="help-inline">

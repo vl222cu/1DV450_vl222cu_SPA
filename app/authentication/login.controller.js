@@ -8,12 +8,14 @@ function LoginController($scope, $rootScope, $location, Restangular, authService
   $scope.login_user = { email: "", password: ""};
   $rootScope.isLoggedIn = false;
   $rootScope.justLoggedIn = false;
+  $rootScope.editEnabled = false;
 
   $scope.login = function () {
     authService.getJwtToken($scope.login_user.email, $scope.login_user.password).then(function(response) {
+    $rootScope.creator = response.creator.id;
     $rootScope.token = response.auth_token;
     $rootScope.isLoggedIn = true;
-    $rootScope.justLoggedIn = true;
+    $rootScope.justLoggedIn = true;      
     $location.path('/places');
       
   }, function(error) {

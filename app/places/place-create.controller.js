@@ -7,7 +7,7 @@ PlaceCreateController.$inject = ['$scope', '$location', 'Restangular'];
 function PlaceCreateController($scope, $location, Restangular) { 
   $scope.save = function() {     
       Restangular.all('places').customPOST(
-      {name: $scope.place.name, text: $scope.place.text, address: $scope.place.address},
+      {creator_id: $scope.creator, name: $scope.place.name, text: $scope.place.text, address: $scope.place.address},
       '',
       {},
       {
