@@ -54,15 +54,15 @@
       </tr>
       <tr>
         <th>Information</th>
-        <th>No</th>
-        <th>Creator's name</th>
-        <th>Place</th>
-        <th>Tag</th>
         <th>
           <a data-ng-show="$root.isLoggedIn" data-ng-href="places/new">
             <span class="glyphicon glyphicon-plus-sign"></span> Add
           </a>
         </th>
+        <th>No</th>
+        <th>Creator's name</th>
+        <th>Place</th>
+        <th>Tag</th>
       </tr>
     </thead>
     <tbody>
@@ -72,15 +72,15 @@
             <span class="glyphicon glyphicon-info-sign"></span> About
           </a>
         </td>
-        <td>{{ $index + 1 }}</td>
-        <td>{{ place.creator_ref.username }}</td>
-        <td>{{ place.name }}</td>
-        <td data-ng-repeat="tag in place.tags">{{ tag.name }}{{$last ? '' : ','}}</td>
         <td>
           <a data-ng-show="$root.isLoggedIn && $root.creator === place.creator_ref.creatorid" data-ng-href="place/{{place.id}}/edit">
             <span class="glyphicon glyphicon-pencil"></span> Edit
           </a>
         </td>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ place.creator_ref.username }}</td>
+        <td>{{ place.name }}</td>
+        <td data-ng-repeat="tag in place.tags">{{ tag.name }}{{$last ? '' : ','}}</td>
       </tr>
     </tbody>
   </table>

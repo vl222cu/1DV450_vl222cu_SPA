@@ -14,12 +14,6 @@ body, html {
   background-color: lightgreen !important;
 }
 
-/*-- change navbar dropdown color --*/
-.navbar-custom1 .navbar-nav .open .dropdown-menu>li>a,.navbar-custom1 .navbar-nav .open .dropdown-menu {
-  background-color: lightgreen;
-  color:#fff;
-}
-
 /* <-------Map settings---------->*/
 .google-map {
   width: 1100px;

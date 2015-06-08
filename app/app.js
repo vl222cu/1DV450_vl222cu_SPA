@@ -35,10 +35,6 @@ function config($routeProvider, $locationProvider, RestangularProvider, flashPro
     templateUrl: 'places/place-edit.html',
     controller: 'PlaceCreateController'
   }).
-   when('/tags/:id/places', {
-    templateUrl: 'places/place-by-tag.html',
-    controller: 'PlaceByTagController'
-  }).
   when('/logout', {
     templateUrl: 'authentication/logout.html',
     controller: 'LogoutController'
